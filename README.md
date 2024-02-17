@@ -10,3 +10,13 @@ The aims of the assignment include the following learning objectives:
     - OS Virtualization via Docker
 2. Understand the operations related to each technologies
 3. Understand and demonstrate the performance differences of each technology using benchmarks and finally compare the results in a comprehensive report.
+
+## HW2 - Your Own Serverless Infrastructure
+### Learning Objectives
+The aims of the assignment include the following learning objectives:
+1. Understanding the in-and-out of serverless computing
+    - How serverless workloads are written
+    - How serverless workloads are executed in terms of OpenFaaS
+2. Understanding a use case of serverless computing
+3. How to monitor serverless compute workloads
+
