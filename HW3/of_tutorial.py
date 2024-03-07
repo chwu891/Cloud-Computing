@@ -80,44 +80,21 @@ class Tutorial (object):
 
 
   def act_like_switch (self, packet, packet_in):
-    """
-    Implement switch-like behavior.
-    """
-
-    """ # DELETE THIS LINE TO START WORKING ON THIS (AND THE ONE BELOW!) #
-
-    # Here's some psuedocode to start you off implementing a learning
-    # switch.  You'll need to rewrite it as real Python code.
-
     # Learn the port for the source MAC
-    self.mac_to_port ... <add or update entry>
-
-    if the port associated with the destination MAC of the packet is known:
-      # Send packet out the associated port
-      self.resend_packet(packet_in, ...)
-
-      # Once you have the above working, try pushing a flow entry
-      # instead of resending the packet (comment out the above and
-      # uncomment and complete the below.)
-
-      log.debug("Installing flow...")
-      # Maybe the log statement should have source/destination/port?
-
-      #msg = of.ofp_flow_mod()
-      #
-      ## Set fields to match received packet
-      #msg.match = of.ofp_match.from_packet(packet)
-      #
-      #< Set other fields of flow_mod (timeouts? buffer_id?) >
-      #
-      #< Add an output action, and send -- similar to resend_packet() >
-
+    # print("Src: ",str(packet.src),":", packet_in.in_port,"Dst:", str(packet.dst)) 
+    if packet.src not in self.mac_to_port:
+        #print("Learning that " + str(packet.src) + " is attached at port " + str(packet_in.in_port))
+        self.mac_to_port[packet.src] = packet_in.in_port
+    # if the port associated with the destination MAC of the packet is known: 
+    if packet.dst in self.mac_to_port:
+        # Send packet out the associated port
+        #print(str(packet.dst) + " destination known. only send message to it") 
+        self.resend_packet(packet_in, self.mac_to_port[packet.dst])
     else:
-      # Flood the packet out everything but the input port
-      # This part looks familiar, right?
-      self.resend_packet(packet_in, of.OFPP_ALL)
-
-    """ # DELETE THIS LINE TO START WORKING ON THIS #
+        # Flood the packet out everything but the input port
+        # This part looks familiar, right?
+        #print(str(packet.dst) + " not known, resend to everybody") 
+        self.resend_packet(packet_in, of.OFPP_ALL)
 
 
   def _handle_PacketIn (self, event):
@@ -135,8 +112,8 @@ class Tutorial (object):
 
     # Comment out the following line and uncomment the one after
     # when starting the exercise.
-    self.act_like_hub(packet, packet_in)
-    #self.act_like_switch(packet, packet_in)
+    #self.act_like_hub(packet, packet_in)
+    self.act_like_switch(packet, packet_in)
 
 
 
