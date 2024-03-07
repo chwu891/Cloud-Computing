@@ -20,3 +20,9 @@ The aims of the assignment include the following learning objectives:
 2. Understanding a use case of serverless computing
 3. How to monitor serverless compute workloads
 
+## HW3 - Mininet & OpenFlow
+### Learning Objectives
+The aims of the assignment include the following learning objectives:
+1. Understanding how to use Mininet
+2. Understand how the control plane works & OpenFlow protocol via POX
+3. Understanding how to form a data center topology
