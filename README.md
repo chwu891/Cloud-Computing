@@ -1,6 +1,6 @@
 # CSEN 241 - Introduction to Cloud Computing
 
-Introduction to cloud computing, cloud architecture and service models, the economics of cloud computing, cluster/grid computing, virtualization, big data, distributed file system, MapReduce paradigm, NoSQL, horizontal/vertical scaling, thin client, disaster recovery, free cloud services and open source software, example commercial cloud services, and federation /presence/ identity /privacy in cloud computing.
+An introduction to cloud computing, including cloud architecture and service models, the economics of cloud computing, cluster and grid computing, virtualization, big data, distributed file systems, the MapReduce paradigm, NoSQL databases, horizontal and vertical scaling, thin clients, disaster recovery, free cloud services, and open-source software. The course also covers examples of commercial cloud services, as well as federation, presence, identity, and privacy in cloud computing.
 
 ## HW1 - System vs OS Virtualization
 ### Learning Objectives
